@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+
+
+
+
+
+
+
+
+
 import './App.css';
+import React, {useState, useEffect} from "react";
+import DisplayMovies from './DisplayMovies';
+import NewMovie from './NewMovie';
+import Search from "./Search";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const defaultLead = {lead: "Tom Cruise"}
+  const defaultDirector = {director: "Steven spielberg"}
+  const defaultShowing = {in_theaters: true}
+  const defaultDate = {release_date:6}
+  const [movies, setMovies] = useState([]);
+  const [search, setSearch] = useState("");
+  useEffect(() => {
+    fetch("http://localhost:9292/movies")
+      .then((r) => r.json())
+      .then((movies) => setMovies(movies));
+  }, []);
+
+  function handleAddMovie(newMovie){
+    setMovies([...movies, newMovie])
+  }
+  return (<div>
+  
+    <DisplayMovies movies = {movies} class = "movies" setMovies = {setMovies}/>
+    <NewMovie movies = {movies} setMovies = {setMovies} onAddMovie = {handleAddMovie} lead = {defaultLead} director = {defaultDirector}
+    showing = {defaultShowing} date = {defaultDate}/>
+    <Search search={search} onSearchChange={setSearch} />
+
+  </div>)
+    
 }
 
 export default App;
