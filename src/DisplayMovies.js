@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 
 
@@ -13,20 +14,26 @@
 
 
 
-function DisplayMovies({movies, setMovies}){
-    const noDups = movies.map((movie) => (<p key = {movie.id.toString()}>
-        title = {movie.title} 
-        release_date = {movie.release_date}
-        director = {movie.director}
-        lead = {movie.lead}
-    </p>))
+function DisplayMovies({movies, setMovies, onDeleteMovie}){
+    function handleDeleteMovie() {
+        fetch(`http://localhost:9292/movies/${id}`, {
+          method: "DELETE",
+        });
+    
+        onDeleteMovie(id);
+      }
+    const mySet = new Set(movies)
+    const uniqueValues = [...mySet]
+    const noDups = uniqueValues.map((movie, i) => (<h3 key = {i.toString()}>
+         <p>{movie.title} </p><button type = "button" className = "deletebtn" onClick = {handleDeleteMovie}>Delete</button>
+    </h3>))
 
-    console.log(noDups);
+    console.log(uniqueValues)
 
       
     return (
     <div className = "movies">
-            {noDups}    
+           {noDups}  
     </div>
 )
 

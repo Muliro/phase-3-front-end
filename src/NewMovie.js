@@ -32,6 +32,8 @@ function NewMovie({ movie, onAddMovie, lead, director, showing, date }) {
   }
 
   return (
+    <>
+    <p>Add your favorite movie to our database</p>
     <form className="new-movie" onSubmit={handleSubmit}>
       <input
         type="text"
@@ -42,6 +44,7 @@ function NewMovie({ movie, onAddMovie, lead, director, showing, date }) {
       />
       <button type="submit">Send</button>
     </form>
+    </>
   );
 }
 

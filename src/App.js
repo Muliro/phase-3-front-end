@@ -21,6 +21,7 @@ function App() {
   const defaultDate = {release_date:6}
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
+  const [id, setId] = useState();
   useEffect(() => {
     fetch("http://localhost:9292/movies")
       .then((r) => r.json())
@@ -30,12 +31,19 @@ function App() {
   function handleAddMovie(newMovie){
     setMovies([...movies, newMovie])
   }
+
+  function handleDeleteMovie(id) {
+    const updatedMovies = movies.filter((movie) => movie.id !== id);
+    setMovies(updatedMovies);
+  }
+
+  
   return (<div>
   
-    <DisplayMovies movies = {movies} class = "movies" setMovies = {setMovies}/>
+    <DisplayMovies movies = {movies} class = "movies" setMovies = {setMovies} onDeleteMovie = {handleDeleteMovie}/>
     <NewMovie movies = {movies} setMovies = {setMovies} onAddMovie = {handleAddMovie} lead = {defaultLead} director = {defaultDirector}
     showing = {defaultShowing} date = {defaultDate}/>
-    <Search search={search} onSearchChange={setSearch} />
+    <Search search={search} onSearch={setSearch} />
 
   </div>)
     
