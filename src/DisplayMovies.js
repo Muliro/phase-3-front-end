@@ -15,7 +15,7 @@ import { useState } from "react";
 
 
 function DisplayMovies({movies, setMovies, onDeleteMovie}){
-    function handleDeleteMovie() {
+    function handleDeleteMovie(id) {
         fetch(`http://localhost:9292/movies/${id}`, {
           method: "DELETE",
         });
