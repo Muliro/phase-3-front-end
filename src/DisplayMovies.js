@@ -25,7 +25,7 @@ function DisplayMovies({movies, setMovies, onDeleteMovie}){
     const mySet = new Set(movies)
     const uniqueValues = [...mySet]
     const noDups = uniqueValues.map((movie, i) => (<h3 key = {i.toString()}>
-         <p>{movie.title} </p><button type = "button" className = "deletebtn" onClick = {handleDeleteMovie}>Delete</button>
+         <p>{movie.title} </p><button type = "button" className = "deletebtn" onClick = {handleDeleteMovie}>Delete</button><button type = "button">Edit</button>
     </h3>))
 
     console.log(uniqueValues)
