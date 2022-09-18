@@ -12,6 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: darkgrey;
+  border-radius:50px;
 }
 
 code {
@@ -22,3 +23,5 @@ code {
 h1{
   text-align: center;
  }
+
+ footer{text-align: center;}
