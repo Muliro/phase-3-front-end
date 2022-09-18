@@ -13,7 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: darkgrey;
   border-radius:50px;
-  display: block;
+  display: inline;
 }
 
 code {
@@ -34,5 +34,24 @@ h1{
   margin-top:20px;
   margin-bottom:20px;
  }
+
+ ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+li  {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+  border-radius:20px;
+}
+
+li:hover{background-color: lightgray;}
 
 

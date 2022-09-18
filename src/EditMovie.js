@@ -40,7 +40,7 @@ function EditMovie({id, movies, onEditMovie, release_date, director, lead, in_th
         value={movieTitle}
         onChange={(e) => setMovieTitle(e.target.value)}
       />
-      <input type="submit" value="Save" />
+      <input type="submit" value="Edit" />
     </form>
   );
 }
