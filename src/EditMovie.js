@@ -7,10 +7,10 @@ import React, { useState } from "react";
 
 
 
-function EditMovie({id, movies, setMovies, release_date, director, lead, in_theaters, image}){
+function EditMovie({id, movies, onEditMovie, release_date, director, lead, in_theaters, image}){
     const [movieTitle, setMovieTitle] = useState([]);
     function handleFormSubmit(e) {
-        e.preventDefault();
+        
 
         fetch(`http://localhost:9292/movies/${id}`, {
       method: "PATCH",
@@ -28,9 +28,9 @@ function EditMovie({id, movies, setMovies, release_date, director, lead, in_thea
       }),
     })
       .then((r) => r.json())
-      .then((updatedMovie) => setMovies(updatedMovie), []);
+      .then((updatedMovie) => onEditMovie([...movies, updatedMovie]));
   }
-  console.log(movieTitle)
+  
   return (
     <form className="edit-movie" onSubmit={handleFormSubmit}>
       <input

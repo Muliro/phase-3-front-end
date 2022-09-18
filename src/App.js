@@ -24,9 +24,8 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:9292/movies")
       .then((r) => r.json())
-      .then((movies) => setMovies(movies));
+      .then((movies) => setMovies([...movies, movies]));
   }, []);
-  console.log(movies);
 
   function handleAddMovie(newMovie){
     setMovies([...movies, newMovie])
@@ -44,6 +43,7 @@ function App() {
     <NewMovie movies = {movies} setMovies = {setMovies} onAddMovie = {handleAddMovie} lead = {defaultLead} director = {defaultDirector}
     showing = {defaultShowing} date = {defaultDate}/>
     <Search search={search} onSearch={setSearch} />
+    
 
   </div>)
     

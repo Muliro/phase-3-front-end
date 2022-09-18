@@ -9,11 +9,10 @@
 
 
 
-function DeleteMovie({id, movies, setMovies}){
-  console.log(movies);
+function DeleteMovie({id, movies, onDeleteMovie}){
   function handleDeleteMovie(id) {
     const updatedMovies = (movies || []).filter((movie) => movie.id !== id);
-    movies = updatedMovies;
+    onDeleteMovie([...updatedMovies, movies]);
   }
     function handleDeleteClick(){
         fetch(`http://localhost:9292/movies/${id}`, {

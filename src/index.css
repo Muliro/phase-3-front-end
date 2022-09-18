@@ -13,6 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: darkgrey;
   border-radius:50px;
+  display: block;
 }
 
 code {
@@ -25,3 +26,13 @@ h1{
  }
 
  footer{text-align: center;}
+
+ img{
+  height: 200px;
+  width:200px;
+  border-radius: 40px;
+  margin-top:20px;
+  margin-bottom:20px;
+ }
+
+
