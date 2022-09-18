@@ -52,6 +52,7 @@ li  {
   border-radius:20px;
 }
 
-li:hover{background-color: lightgray;}
+li:hover{background-color: gray;}
+input{margin: 20px;}
 
 
